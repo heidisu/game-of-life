@@ -1,0 +1,40 @@
+#main {
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+    display: inline-flex;
+    align-items: center; 
+    margin: 0 10px 0 0;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.5;
+    appearance: none;
+    box-shadow: none;
+    border-radius: 0;
+    color: #6600FF;
+    background: rgba(0,0,0,0);
+    border: solid 3px #6600FF;
+}
+
+button:hover,
+button.hover {
+    border-color: #4C00BC;
+    color: #4C00BC;
+}
+
+button:active,
+button.active {
+    border-color: #3B0091;
+    color: #3B0091;
+}
+
+button i {
+    padding-left: 10px;
+}
+
+.button-row {
+    padding-bottom: 20px;
+}
