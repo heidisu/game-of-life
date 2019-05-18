@@ -1,4 +1,10 @@
-# game-of-life
+# Conway's game of life
+
+Read more about game of life on [Wikipedia](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)
+
+## Try it out
+
+https://heidisu.github.io/game-of-life/
 
 ## Run Project
 
