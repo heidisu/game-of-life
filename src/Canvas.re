@@ -38,28 +38,34 @@ let getElementById: string => canvas =
         return document.getElementById(arg)
     }|}]
 
-let getCanvasSize = (game: Game.game) : int => {
+let getCanvasSize = (game: Game.game) : (int, int) => {
     let gameSize = Game.getSize(game);
-    gameSize * cellSize + (gameSize + 1) * lineWidth;
+    let actualSize = (size: int) : int => size * cellSize + (size + 1) * lineWidth;
+    (actualSize(gameSize.width), actualSize(gameSize.height))
 };
 
 let clear = (context, game: Game.game): unit => {
-    let size  = getCanvasSize(game);
-    clearRect(context, 0, 0, size, size);
+    let (width, height)  = getCanvasSize(game);
+    clearRect(context, 0, 0, width, height);
 };    
 
 let drawGrid = (context, game: Game.game) : unit => {
-    let gameSize = Game.getSize(game);
-    let canvasSizeF = float_of_int(getCanvasSize(game));
+    let (width, height) = getCanvasSize(game);
+    let widthF = float_of_int(width);
+    let heightF = float_of_int(height);
     let lineWidthF = float_of_int(lineWidth);
     let cellSizeF = float_of_int(cellSize);
-    for (i in 0 to gameSize) {
+
+    for (i in 0 to width) {
         let i = float_of_int(i);
         // the actual line takes up space on both sides of the defined line
         moveTo(context, (i *. lineWidthF)  +. (cellSizeF *. i) +. lineWidthF /. 2.0, 0.0);
-        lineTo(context, (i *. lineWidthF)  +. (cellSizeF *. i) +. lineWidthF /. 2.0, canvasSizeF);
+        lineTo(context, (i *. lineWidthF)  +. (cellSizeF *. i) +. lineWidthF /. 2.0, heightF);
+    }
+    for (i in 0 to height) {
+        let i = float_of_int(i);
         moveTo(context, 0.0,  (i *. lineWidthF)  +. (cellSizeF *. i) +. lineWidthF /. 2.0);
-        lineTo(context, canvasSizeF,  (i *. lineWidthF)  +. (cellSizeF *. i) +. lineWidthF /. 2.0);
+        lineTo(context, widthF,  (i *. lineWidthF)  +. (cellSizeF *. i) +. lineWidthF /. 2.0);
     }
     setLineWidth(context, lineWidth);
     setStrokeStyle(context, lineColor);
@@ -95,7 +101,9 @@ React.useEffect(() => {
     None;
   });
 
-let size = string_of_int(getCanvasSize(game));
+let (width, height) = getCanvasSize(game);
+let widthS = string_of_int(width)
+let heightS = string_of_int(height)
 
 let onClick = (evt) => {
     let rect = getBoundingClientRect(getElementById(canvasId));
@@ -110,6 +118,6 @@ let onClick = (evt) => {
 };
 
 <div>
-    <canvas id=canvasId width=size height=size onClick={evt => onClick(evt)}></canvas>
+    <canvas id=canvasId width=widthS height=heightS onClick={evt => onClick(evt)}></canvas>
 </div>;
 };

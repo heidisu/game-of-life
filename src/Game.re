@@ -3,6 +3,12 @@ type cell = {
     y: int
 };
 
+
+type size = {
+    width: int,
+    height: int
+}
+
 module Cell =  {
     type t = cell
     let compare = (c1, c2) => {
@@ -17,13 +23,13 @@ module CellSet = Set.Make(Cell)
 
 
 type game = {
-    size: int,
+    size: size,
     livingCells: CellSet.t
 };
 
 let glider = [ {x: 2, y: 1},  {x: 3, y: 2},  {x: 1, y: 3},  {x: 2, y: 3},  {x: 3, y: 3}]
 
-let defaultGame = { size: 25, livingCells: CellSet.of_list(glider) };
+let defaultGame = { size: { width: 25, height: 20 }, livingCells: CellSet.of_list(glider) };
 
 let toggleCell = (game, cell) => {
     let livingCells = 

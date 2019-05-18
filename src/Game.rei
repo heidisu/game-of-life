@@ -3,6 +3,11 @@ type cell = {
     y: int
 };
 
+type size = {
+    width: int,
+    height: int
+}
+
 type game;
 
 let defaultGame: game;
@@ -13,6 +18,6 @@ let step: game => game;
 
 let clear: game => game;
 
-let getSize: game => int;
+let getSize: game => size;
 
 let getLivingCells: game => list(cell)
