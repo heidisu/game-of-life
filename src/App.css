@@ -33,8 +33,29 @@ button.active {
 
 button i {
     padding-left: 10px;
+    
 }
 
-.button-row {
+label {
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.5;
+    color: #6600FF;
+    margin-right: 10px;
+    padding: 10px 0px;
+}
+
+input {
+    margin-right: 10px;
+    border-color:  #6600FF;
+    border-style: solid;
+    color: #6600FF; 
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.5;
+    padding: 10px 20px;
+}
+
+.action-row {
     padding-bottom: 20px;
 }

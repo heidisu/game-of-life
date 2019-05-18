@@ -96,3 +96,10 @@ let clear = (game: game) => {
 let getSize = (game: game) => game.size;
 
 let getLivingCells = (game: game) => CellSet.elements(game.livingCells);
+
+let updateSize = (game: game, updateSize: size => size) => 
+    { ... game, size: updateSize(game.size)}
+
+let setWidth = (game: game, width: int) => updateSize(game, size => {...size, width: width})
+
+let setHeight = (game: game, height: int) => updateSize(game, size => {...size, height: height})

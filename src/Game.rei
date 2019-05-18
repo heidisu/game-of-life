@@ -21,3 +21,7 @@ let clear: game => game;
 let getSize: game => size;
 
 let getLivingCells: game => list(cell)
+
+let setWidth: (game, int) => game;
+
+let setHeight: (game, int) => game;
