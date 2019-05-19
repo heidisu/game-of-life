@@ -3,18 +3,22 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+button, label, input {
+    font-size: 14px;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 1.5;
+    color: #6600FF; 
+}
+
+
 button {
     display: inline-flex;
     align-items: center; 
     margin: 0 10px 0 0;
     padding: 10px 20px;
-    font-size: 14px;
-    font-family: 'Courier New', Courier, monospace;
-    line-height: 1.5;
     appearance: none;
     box-shadow: none;
     border-radius: 0;
-    color: #6600FF;
     background: rgba(0,0,0,0);
     border: solid 3px #6600FF;
 }
@@ -33,14 +37,9 @@ button.active {
 
 button i {
     padding-left: 10px;
-    
 }
 
 label {
-    font-size: 14px;
-    font-family: 'Courier New', Courier, monospace;
-    line-height: 1.5;
-    color: #6600FF;
     margin-right: 10px;
     padding: 10px 0px;
 }
@@ -49,10 +48,6 @@ input {
     margin-right: 10px;
     border-color:  #6600FF;
     border-style: solid;
-    color: #6600FF; 
-    font-size: 14px;
-    font-family: 'Courier New', Courier, monospace;
-    line-height: 1.5;
     padding: 10px 20px;
 }
 
